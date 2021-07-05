@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { Small } from "./payloads/Small";
 import { Medium } from "./payloads/Medium";
 import { Large } from "./payloads/Large";
@@ -61,7 +62,10 @@ const validSmallsValidation = {
 };
 
 // Validate valid mediums
-const validMediumsValidation = {};
+const validMediumsValidation = {
+    validatorjs: 0,
+    classvalidator: measure(() => validMediums.forEach(validMedium => classvalidator.medium(validMedium))),
+};
 
 // Validate valid larges
 const validLargesValidation = {};
@@ -76,7 +80,12 @@ const invalidMediumsValidation = {};
 const invalidLargesValidation = {};
 
 // Summary
-console.log(validSmallsValidation);
+displayResults(validSmallsValidation, 'VALID SMALLS');
+displayResults(validMediumsValidation, 'VALID MEDIUMS');
 
-//TODO: Check if validates date correctly
-//TODO: Check if validated repeated_password correctly
+function displayResults(results: object, type: string) {
+    console.log('-------------------------\n');
+    console.log(`Results for [${ type }]:\n`);
+    console.log(results);
+    console.log('\n')
+}
