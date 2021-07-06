@@ -51,6 +51,9 @@ const ajv = new Ajv();
 // };
 // console.log(isValidationCorrect);
 
+// const result = validatorjs.medium(validMediums[0]);
+// console.log(result.errors.all());
+
 // Validate valid smallRules
 const validSmallsValidation = {
     validatorjs: measure(() => validSmalls.forEach(validSmall => validatorjs.small(validSmall))),
@@ -63,8 +66,9 @@ const validSmallsValidation = {
 
 // Validate valid mediums
 const validMediumsValidation = {
-    validatorjs: 0,
+    validatorjs: measure(() => validMediums.forEach(validMedium => validatorjs.medium(validMedium))),
     classvalidator: measure(() => validMediums.forEach(validMedium => classvalidator.medium(validMedium))),
+    joi: measure(() => validMediums.forEach(validMedium => joi.medium(validMedium))),
 };
 
 // Validate valid larges

@@ -67,6 +67,10 @@ class Contact {
 
 class OrderDetails {
     @IsString()
+    @Length(3, 64)
+    name: string;
+
+    @IsString()
     @Length(8, 2048)
     description: string;
 
@@ -96,6 +100,11 @@ class Restaurant {
     @ValidateNested({ each: true })
     @Type(() => Product)
     menu: Product[];
+
+    @IsObject()
+    @ValidateNested()
+    @Type(() => Address)
+    address: string;
 }
 
 class Address {
