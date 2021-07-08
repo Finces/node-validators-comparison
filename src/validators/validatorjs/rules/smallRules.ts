@@ -1,6 +1,6 @@
 export const smallRules = {
     id: [ 'required', 'regex:/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/' ],
-    name: 'required|string|min:3|max:32',
+    name: 'required|string|min:2|max:32',
     surname: 'required|string|min:3|max:32',
     height: 'required|integer|min:175|max:200',
     weight: 'required|integer|min:65|max:120',

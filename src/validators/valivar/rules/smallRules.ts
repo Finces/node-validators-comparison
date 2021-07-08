@@ -11,7 +11,7 @@ export const smallRules = new Schema({
     name: {
         type: String,
         required: true,
-        length: { min: 3, max: 32 },
+        length: { min: 2, max: 32 },
     },
     surname: {
         type: String,

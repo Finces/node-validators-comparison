@@ -6,7 +6,7 @@ export const smallRules = Joi.object({
         .uuid(),
     name: Joi
         .string()
-        .min(3)
+        .min(2)
         .max(32),
     surname: Joi
         .string()

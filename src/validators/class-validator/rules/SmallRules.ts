@@ -6,7 +6,7 @@ export class SmallRules {
     id: string;
 
     @IsString()
-    @Length(3, 32)
+    @Length(2, 32)
     name: string;
 
     @IsString()
