@@ -9,21 +9,23 @@ import { Ajv } from "../validators/ajv/Ajv";
 import { measure } from "../measure";
 
 export class ValidateMediums {
-    validate(mediums: Medium[]): Measurements {
-        const validatorjs = new Validatorjs();
-        const classvalidator = new Classvalidator();
-        const joi = new Joi();
-        const valivar = new Valivar();
-        const jsonschema = new Jsonschema();
-        const ajv = new Ajv();
+    constructor(
+        private readonly validatorjs: Validatorjs = new Validatorjs(),
+        private readonly classvalidator: Classvalidator = new Classvalidator(),
+        private readonly joi: Joi = new Joi(),
+        private readonly valivar: Valivar = new Valivar(),
+        private readonly jsonschema: Jsonschema = new Jsonschema(),
+        private readonly ajv: Ajv = new Ajv(),
+    ) {}
 
+    validate(mediums: Medium[]): Measurements {
         return {
-            validatorjs: measure(() => mediums.forEach(validMedium => validatorjs.medium(validMedium))),
-            classvalidator: measure(() => mediums.forEach(validMedium => classvalidator.medium(validMedium))),
-            joi: measure(() => mediums.forEach(validMedium => joi.medium(validMedium))),
-            valivar: measure(() => mediums.forEach(validMedium => valivar.medium(validMedium))),
-            jsonschema: measure(() => mediums.forEach(validMedium => jsonschema.medium(validMedium))),
-            ajv: measure(() => mediums.forEach(validMedium => ajv.medium(validMedium))),
+            validatorjs: measure(() => mediums.forEach(validMedium => this.validatorjs.medium(validMedium))),
+            classvalidator: measure(() => mediums.forEach(validMedium => this.classvalidator.medium(validMedium))),
+            joi: measure(() => mediums.forEach(validMedium => this.joi.medium(validMedium))),
+            valivar: measure(() => mediums.forEach(validMedium => this.valivar.medium(validMedium))),
+            jsonschema: measure(() => mediums.forEach(validMedium => this.jsonschema.medium(validMedium))),
+            ajv: measure(() => mediums.forEach(validMedium => this.ajv.medium(validMedium))),
         };
     }
 }
