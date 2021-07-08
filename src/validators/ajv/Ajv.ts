@@ -4,8 +4,6 @@ import addFormats from 'ajv-formats';
 import { smallRules } from "./rules/smallRules";
 import { Medium } from "../../payloads/Medium";
 import { mediumRules } from "./rules/mediumRules";
-import { Large } from "../../payloads/Large";
-import { largeRules } from "./rules/largeRules";
 
 export class Ajv {
     private readonly validator: Validator;
@@ -21,9 +19,5 @@ export class Ajv {
 
     medium(data: Medium): boolean {
         return this.validator.validate(mediumRules, data);
-    }
-
-    large(data: Large): boolean {
-        return this.validator.validate(largeRules, data);
     }
 }
