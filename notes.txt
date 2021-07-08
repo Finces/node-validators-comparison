@@ -1,0 +1,44 @@
+SUBJECTIVE GRADES
+------------------
+
+    validatorjs:
+        documentation -> clear, descriptive, with examples
+        difficulty -> intuitive, rather easy
+        community -> ok, there are solutions for problems
+        custom rules -> easy to implement, there are examples
+        comfort of use -> nice syntax, but missing common validation rules (email, phone, uuid, ...)
+
+    class-validator:
+        documentation -> tons of examples, perfect documentation
+        difficulty -> very intuitive, easy, however requires some work with class-transformer
+        community -> help is easy to find
+        custom rules -> easy to implement, explained with examples
+        comfort of use -> the best
+
+    joi:
+        documentation -> clear, descriptive, with examples
+        difficulty -> rather easy
+        community -> a lot of problem solutions
+        custom rules -> didn't have to implement, but it seems relatively easy
+        comfort of use -> very comfortable
+
+    valivar:
+        documentation -> it's ok
+        difficulty -> rather easy
+        community -> practically non existing
+        custom rules -> very easy to implement
+        comfort of use -> not bad
+
+    jsonschema:
+        documentation -> there is some, but could be much better
+        difficulty -> caused the most problems
+        community -> there is more than one jsonschema validator, so they kind of overlap
+        custom rules -> complicated, I failed to achieve what I wanted (repeated_password to password comparison)
+        comfort of use -> I didn't like it, would not use this
+
+    ajv:
+        documentation -> it's ok
+        difficulty -> rather easy, once gotten used to
+        community -> didn't have much problems, but solutions are rather easy to find
+        custom rules -> didn't have to use it, but it seems rather easy
+        comfort of use -> it's ok, with added formats there is a lot of predefined validation rules/formats
