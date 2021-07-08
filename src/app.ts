@@ -41,20 +41,7 @@ const valivar = new Valivar();
 const jsonschema = new Jsonschema();
 const ajv = new Ajv();
 
-// const isValidationCorrect = {
-//     validatorjs: validatorjs.small(validSmalls[0]).errors.all(),
-//     classvalidator: classvalidator.small(validSmalls[0]),
-//     joi: joi.small(validSmalls[0]).error,
-//     valivar: valivar.small(validSmalls[0]),
-//     jsonschema: jsonschema.small(validSmalls[0]).errors,
-//     ajv: ajv.small(validSmalls[0]),
-// };
-// console.log(isValidationCorrect);
-
-// const result = validatorjs.medium(validMediums[0]);
-// console.log(result.errors.all());
-
-// Validate valid smallRules
+// Validate valid smalls
 const validSmallsValidation = {
     validatorjs: measure(() => validSmalls.forEach(validSmall => validatorjs.small(validSmall))),
     classvalidator: measure(() => validSmalls.forEach(validSmall => classvalidator.small(validSmall))),
@@ -69,23 +56,36 @@ const validMediumsValidation = {
     validatorjs: measure(() => validMediums.forEach(validMedium => validatorjs.medium(validMedium))),
     classvalidator: measure(() => validMediums.forEach(validMedium => classvalidator.medium(validMedium))),
     joi: measure(() => validMediums.forEach(validMedium => joi.medium(validMedium))),
+    valivar: measure(() => validMediums.forEach(validMedium => valivar.medium(validMedium))),
+    jsonschema: measure(() => validMediums.forEach(validMedium => jsonschema.medium(validMedium))),
+    ajv: measure(() => validMediums.forEach(validMedium => ajv.medium(validMedium))),
 };
 
-// Validate valid larges
-const validLargesValidation = {};
-
-// Validate invalid smalls
-const invalidSmallsValidation = {};
-
-// Validate invalid mediums
-const invalidMediumsValidation = {};
-
-// Validate invalid larges
-const invalidLargesValidation = {};
+// // Validate invalid smalls
+// const invalidSmallsValidation = {
+//     validatorjs: measure(() => invalidSmalls.forEach(invalidSmall => validatorjs.small(invalidSmall))),
+//     classvalidator: measure(() => invalidSmalls.forEach(invalidSmall => classvalidator.small(invalidSmall))),
+//     joi: measure(() => invalidSmalls.forEach(invalidSmall => joi.small(invalidSmall))),
+//     valivar: measure(() => invalidSmalls.forEach(invalidSmall => valivar.small(invalidSmall))),
+//     jsonschema: measure(() => invalidSmalls.forEach(invalidSmall => jsonschema.small(invalidSmall))),
+//     ajv: measure(() => invalidSmalls.forEach(invalidSmall => ajv.small(invalidSmall))),
+// };
+//
+// // Validate invalid mediums
+// const invalidMediumsValidation = {
+//     validatorjs: measure(() => invalidMediums.forEach(invalidMedium => validatorjs.medium(invalidMedium))),
+//     classvalidator: measure(() => invalidMediums.forEach(invalidMedium => classvalidator.medium(invalidMedium))),
+//     joi: measure(() => invalidMediums.forEach(invalidMedium => joi.medium(invalidMedium))),
+//     valivar: measure(() => invalidMediums.forEach(invalidMedium => valivar.medium(invalidMedium))),
+//     jsonschema: measure(() => invalidMediums.forEach(invalidMedium => jsonschema.medium(invalidMedium))),
+//     ajv: measure(() => invalidMediums.forEach(invalidMedium => ajv.medium(invalidMedium))),
+// };
 
 // Summary
 displayResults(validSmallsValidation, 'VALID SMALLS');
 displayResults(validMediumsValidation, 'VALID MEDIUMS');
+// displayResults(invalidSmallsValidation, 'INVALID SMALLS');
+// displayResults(invalidMediumsValidation, 'INVALID MEDIUMS')
 
 function displayResults(results: object, type: string) {
     console.log('-------------------------\n');

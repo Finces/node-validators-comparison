@@ -7,7 +7,7 @@ const contactValidation = () => ({
 
 const personValidation = () => ({
     id: uuidValidation(),
-    first_name: 'required|string|min:3|max:32',
+    first_name: 'required|string|min:1|max:32',
     last_name: 'required|string|min:3|max:64',
     contact: contactValidation(),
 });

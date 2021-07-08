@@ -42,7 +42,7 @@ class Person {
     id: string;
 
     @IsString()
-    @Length(3, 32)
+    @Length(1, 32)
     first_name: string;
 
     @IsString()
