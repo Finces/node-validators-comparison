@@ -1,52 +1,52 @@
-import { Medium } from "../../Medium";
+import { Large } from "../../Large";
 import * as faker from "faker";
 
-export function generateInvalidMedium(): Medium {
+export function generateValidLarge(): Large {
     return {
-        id: faker.datatype.string(12),
+        id: faker.datatype.uuid(),
         client: {
-            id: faker.datatype.string(12),
-            first_name: faker.datatype.string(64),
-            last_name: faker.datatype.string(128),
+            id: faker.datatype.uuid(),
+            first_name: faker.name.firstName(),
+            last_name: faker.name.lastName(),
             contact: {
-                phone_number: faker.phone.phoneNumber('##########'),
-                email: faker.datatype.string(12),
+                phone_number: faker.phone.phoneNumber('#########'),
+                email: null,
             },
         },
         driver: {
-            id: faker.datatype.string(12),
-            first_name: faker.datatype.string(64),
-            last_name: faker.datatype.string(128),
+            id: faker.datatype.uuid(),
+            first_name: faker.name.firstName(),
+            last_name: faker.name.lastName(),
             contact: {
-                phone_number: faker.phone.phoneNumber('##########'),
-                email: faker.datatype.string(12),
+                phone_number: null,
+                email: faker.internet.email(),
             },
         },
         order_details: {
-            name: faker.datatype.string(2),
-            description: faker.datatype.string(5),
+            name: faker.commerce.productName(),
+            description: faker.commerce.productDescription(),
             price: Number(faker.commerce.price(30, 100, 2)),
             currency: 'PLN',
             delivery_address: {
-                country: faker.address.country(),
-                city: faker.address.city(),
-                postal_code: faker.address.zipCode('###-###'),
+                country: 'Poland',
+                city: 'Rzeszów',
+                postal_code: faker.address.zipCode('##-###'),
                 street: faker.address.streetName(),
                 building: faker.datatype.number({ min: 1, max: 256, precision: 1 }).toString(),
             },
         },
         restaurant: {
-            id: faker.datatype.string(8),
-            name: faker.datatype.string(2),
+            id: faker.datatype.uuid(),
+            name: faker.company.companyName(),
             menu: [
                 {
                     id: faker.datatype.number({ min: 1, max: 10, precision: 1 }),
-                    name: faker.datatype.string(2),
-                    description: faker.datatype.string(5),
+                    name: faker.commerce.productName(),
+                    description: faker.commerce.productDescription(),
                     prices: [
                         {
                             amount: Number(faker.commerce.price(10, 20, 2)),
-                            currency: faker.finance.currencyName()
+                            currency: 'PLN'
                         }
                     ],
                 },
@@ -71,7 +71,7 @@ export function generateInvalidMedium(): Medium {
                     description: faker.commerce.productDescription(),
                     prices: [
                         {
-                            amount: 0,
+                            amount: Number(faker.commerce.price(10, 20, 2)),
                             currency: 'PLN'
                         },
                         {
@@ -80,15 +80,15 @@ export function generateInvalidMedium(): Medium {
                         },
                         {
                             amount: Number(faker.commerce.price(5, 9, 2)),
-                            currency: faker.finance.currencySymbol(),
+                            currency: 'DOL',
                         },
                     ],
                 },
             ],
             address: {
-                country: faker.address.country(),
-                city: faker.address.city(),
-                postal_code: faker.address.zipCode('###-###'),
+                country: 'Poland',
+                city: 'Rzeszów',
+                postal_code: faker.address.zipCode('##-###'),
                 street: faker.address.streetName(),
                 building: faker.datatype.number({ min: 1, max: 256, precision: 1 }).toString(),
             },

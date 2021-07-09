@@ -1,4 +1,4 @@
-import { Medium } from "../payloads/Medium";
+import { Large } from "../payloads/Large";
 import { Measurements } from "./Measurements";
 import { Validatorjs } from "../validators/validatorjs/Validatorjs";
 import { Classvalidator } from "../validators/class-validator/Classvalidator";
@@ -8,7 +8,7 @@ import { Jsonschema } from "../validators/jsonschema/Jsonschema";
 import { Ajv } from "../validators/ajv/Ajv";
 import { measure } from "../measure";
 
-export class ValidateMediums {
+export class ValidateLarges {
     constructor(
         private readonly validatorjs: Validatorjs = new Validatorjs(),
         private readonly classvalidator: Classvalidator = new Classvalidator(),
@@ -18,14 +18,14 @@ export class ValidateMediums {
         private readonly ajv: Ajv = new Ajv(),
     ) {}
 
-    validate(mediums: Medium[]): Measurements {
+    validate(larges: Large[]): Measurements {
         return {
-            validatorjs: measure(() => mediums.forEach(validMedium => this.validatorjs.medium(validMedium))),
-            classvalidator: measure(() => mediums.forEach(validMedium => this.classvalidator.medium(validMedium))),
-            joi: measure(() => mediums.forEach(validMedium => this.joi.medium(validMedium))),
-            valivar: measure(() => mediums.forEach(validMedium => this.valivar.medium(validMedium))),
-            jsonschema: measure(() => mediums.forEach(validMedium => this.jsonschema.medium(validMedium))),
-            ajv: measure(() => mediums.forEach(validMedium => this.ajv.medium(validMedium))),
+            validatorjs: measure(() => larges.forEach(validLarge => this.validatorjs.large(validLarge))),
+            classvalidator: measure(() => larges.forEach(validLarge => this.classvalidator.large(validLarge))),
+            joi: measure(() => larges.forEach(validLarge => this.joi.large(validLarge))),
+            valivar: measure(() => larges.forEach(validLarge => this.valivar.large(validLarge))),
+            jsonschema: measure(() => larges.forEach(validLarge => this.jsonschema.large(validLarge))),
+            ajv: measure(() => larges.forEach(validLarge => this.ajv.large(validLarge))),
         };
     }
 }

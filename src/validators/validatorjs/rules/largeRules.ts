@@ -32,7 +32,7 @@ const productValidation = () => ({
     'prices.*': priceValidation(),
 });
 
-export const mediumRules = {
+export const largeRules = {
     id: uuidValidation(),
     client: personValidation(),
     driver: personValidation(),

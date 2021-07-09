@@ -1,4 +1,4 @@
-export type Medium = {
+export type Large = {
     id: string;
     client: Person;
     driver: Person;

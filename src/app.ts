@@ -1,40 +1,40 @@
 import 'reflect-metadata';
 import { Small } from "./payloads/Small";
-import { Medium } from "./payloads/Medium";
+import { Large } from "./payloads/Large";
 import { generateValidSmall } from "./payloads/generators/valid/generateValidSmall";
-import { generateValidMedium } from "./payloads/generators/valid/generateValidMedium";
+import { generateValidLarge } from "./payloads/generators/valid/generateValidLarge";
 import { generateInvalidSmall } from "./payloads/generators/invalid/generateInvalidSmall";
-import { generateInvalidMedium } from "./payloads/generators/invalid/generateInvalidMedium";
+import { generateInvalidLarge } from "./payloads/generators/invalid/generateInvalidLarge";
 import { Measurements } from "./validation/Measurements";
 import { ValidateSmalls } from "./validation/ValidateSmalls";
-import { ValidateMediums } from "./validation/ValidateMediums";
+import { ValidateLarges } from "./validation/ValidateLarges";
 
 const validSmalls: Small[] = [];
-const validMediums: Medium[] = [];
+const validLarges: Large[] = [];
 
 const invalidSmalls: Small[] = [];
-const invalidMediums: Medium[] = [];
+const invalidLarges: Large[] = [];
 
 for ( let iterator = 0; iterator < 1000; iterator++ ) {
     validSmalls.push(generateValidSmall());
-    validMediums.push(generateValidMedium());
+    validLarges.push(generateValidLarge());
 
     invalidSmalls.push(generateInvalidSmall());
-    invalidMediums.push(generateInvalidMedium());
+    invalidLarges.push(generateInvalidLarge());
 }
 
 const validateSmalls = new ValidateSmalls();
-const validateMediums = new ValidateMediums();
+const validateLarges = new ValidateLarges();
 
 const validSmallsValidation = validateSmalls.validate(validSmalls);
-const validMediumsValidation = validateMediums.validate(validMediums);
+const validMLargesValidation = validateLarges.validate(validLarges);
 const invalidSmallsValidation = validateSmalls.validate(invalidSmalls);
-const invalidMediumsValidation = validateMediums.validate(invalidMediums);
+const invalidLargesValidation = validateLarges.validate(invalidLarges);
 
 displayResults(validSmallsValidation, 'VALID SMALLS');
-displayResults(validMediumsValidation, 'VALID MEDIUMS');
+displayResults(validMLargesValidation, 'VALID LARGES');
 displayResults(invalidSmallsValidation, 'INVALID SMALLS');
-displayResults(invalidMediumsValidation, 'INVALID MEDIUMS');
+displayResults(invalidLargesValidation, 'INVALID LARGES');
 
 function displayResults(results: Measurements, type: string) {
     console.log('-------------------------\n');

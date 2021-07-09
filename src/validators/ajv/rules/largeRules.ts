@@ -103,7 +103,7 @@ const productValidation = {
     required: [ 'id', 'name', 'description', 'prices' ],
 };
 
-export const mediumRules = {
+export const largeRules = {
     type: 'object',
     properties: {
         id: {

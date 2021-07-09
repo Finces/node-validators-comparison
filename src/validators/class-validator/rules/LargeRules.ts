@@ -9,10 +9,10 @@ import {
     ValidateIf,
     ValidateNested
 } from "class-validator";
-import { City, Country, Currency } from "../../../payloads/Medium";
+import { City, Country, Currency } from "../../../payloads/Large";
 import { Type } from "class-transformer";
 
-export class MediumRules {
+export class LargeRules {
     @IsUUID(4)
     id: string;
 

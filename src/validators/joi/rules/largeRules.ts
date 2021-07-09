@@ -105,7 +105,7 @@ const restaurantValidation = Joi.object({
     address: addressValidation,
 });
 
-export const mediumRules = Joi.object({
+export const largeRules = Joi.object({
     id: Joi
         .string()
         .uuid(),

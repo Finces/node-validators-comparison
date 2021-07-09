@@ -95,7 +95,7 @@ const productValidation = new Schema({
     prices: [ priceValidation ],
 });
 
-export const mediumRules = new Schema({
+export const largeRules = new Schema({
     id: {
         type: String,
         required: true,

@@ -106,7 +106,7 @@ const productValidation = {
     },
 };
 
-export const mediumRules = {
+export const largeRules = {
     type: 'object',
     properties: {
         id: {
